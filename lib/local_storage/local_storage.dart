@@ -5,6 +5,9 @@ class LocalStorage {
 
   static String _city = 'Chimbote';
 
+  //Dark mode
+  static bool _isDark = false;
+
   static Future<void> initializePrefs() async {
     _prefs = await SharedPreferences.getInstance();
   }
@@ -16,5 +19,15 @@ class LocalStorage {
   static set city(String city) {
     _city = city;
     _prefs.setString('city', city);
+  }
+
+  //Dark mode
+  static bool get isDark {
+    return _prefs.getBool('isDark') ?? _isDark;
+  }
+
+  static set isDark(bool isDark) {
+    _isDark = isDark;
+    _prefs.setBool('isDark', isDark);
   }
 }

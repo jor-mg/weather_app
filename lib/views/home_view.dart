@@ -17,8 +17,15 @@ class HomeView extends StatelessWidget {
 
     final forecastController = context.watch<ForecastController>();
 
+    final textStyle = TextStyle(
+      fontWeight: FontWeight.w400,
+      color: Theme.of(context).brightness == Brightness.dark
+          ? const Color(0xff892CDC)
+          : Colors.blue,
+    );
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F9FF),
+      //backgroundColor: const Color(0xFFF6F9FF),
       appBar: CustomAppBarWidget(
         title: 'WEATHER APP',
         actions: [
@@ -95,7 +102,11 @@ class HomeView extends StatelessWidget {
                               padding: const EdgeInsets.all(20),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                color: Colors.white,
+                                //color: Colors.white,
+                                color: Theme.of(context).brightness ==
+                                        Brightness.dark
+                                    ? const Color(0xff2D2D2D)
+                                    : Colors.white,
                                 boxShadow: const [
                                   BoxShadow(
                                     color: Color.fromARGB(31, 194, 194, 194),
@@ -115,14 +126,12 @@ class HomeView extends StatelessWidget {
                                             'TODAY',
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
+                                              fontSize: 16,
                                             ),
                                           ),
                                           Text(
                                             dayOfWeek,
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.blue,
-                                            ),
+                                            style: textStyle,
                                           ),
                                         ],
                                       ),
@@ -146,6 +155,7 @@ class HomeView extends StatelessWidget {
                                           'https:${weather.day.condition.icon}'),
                                     ],
                                   ),
+                                  const SizedBox(height: 10),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -200,7 +210,11 @@ class HomeView extends StatelessWidget {
                             padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              color: Colors.white,
+                              //color: Colors.white,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? const Color(0xff2D2D2D)
+                                  : Colors.white,
                               boxShadow: const [
                                 BoxShadow(
                                   color: Color.fromARGB(31, 194, 194, 194),
@@ -213,10 +227,7 @@ class HomeView extends StatelessWidget {
                               children: [
                                 Text(
                                   dayOfWeek,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.blue,
-                                  ),
+                                  style: textStyle,
                                 ),
                                 const Spacer(),
                                 Column(

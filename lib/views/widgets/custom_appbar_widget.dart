@@ -14,19 +14,10 @@ class CustomAppBarWidget extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(
-        title,
-        style: const TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      backgroundColor: Colors.blue,
+      title: Text(title),
+      //backgroundColor: Colors.blue,
       centerTitle: true,
       actions: actions,
-      iconTheme: const IconThemeData(
-        color: Colors.white,
-      ),
     );
   }
 

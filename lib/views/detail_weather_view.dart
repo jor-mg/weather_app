@@ -25,18 +25,20 @@ class DetailWeatherView extends StatelessWidget {
     final forecastController = context.watch<ForecastController>();
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F9FF),
+      //backgroundColor: const Color(0xFFF6F9FF),
       appBar: CustomAppBarWidget(title: 'Details of $city'),
       body: Container(
         margin: const EdgeInsets.only(top: 50),
         child: Swiper(
             itemCount: listForecastDay.length,
-            pagination: const SwiperPagination(
+            pagination: SwiperPagination(
               alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.only(bottom: 200),
+              margin: const EdgeInsets.only(bottom: 200),
               builder: DotSwiperPaginationBuilder(
                 color: Colors.grey,
-                activeColor: Colors.blue,
+                activeColor: Theme.of(context).brightness == Brightness.dark
+                    ? const Color(0xff892CDC)
+                    : Colors.blue,
               ),
             ),
             index: index,

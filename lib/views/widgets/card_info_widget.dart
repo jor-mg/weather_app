@@ -27,12 +27,14 @@ class CardInfoWidget extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(isVertical ? 20 : 10),
-        color: Colors.white,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? const Color(0xff2D2D2D)
+            : Colors.white,
         boxShadow: [
           BoxShadow(
             color: isVertical
                 ? const Color.fromARGB(31, 194, 194, 194)
-                : const Color.fromARGB(31, 175, 175, 175),
+                : const Color.fromARGB(31, 129, 129, 129),
             blurRadius: 10,
           ),
         ],

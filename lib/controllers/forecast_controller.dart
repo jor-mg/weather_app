@@ -35,12 +35,15 @@ class ForecastController extends ChangeNotifier {
 
     final response = await http.get(url);
 
-    final jsonData = json.decode(response.body);
-    final weatherModelR = forecastFromJson(json.encode(jsonData));
-    //forecastss.add(forecastR);
-    _weatherModel = weatherModelR;
-    _isLoading = false;
-    notifyListeners();
+    if (response.statusCode == 200) {
+      final jsonData = json.decode(response.body);
+      final weatherModelR = forecastFromJson(json.encode(jsonData));
+      _weatherModel = weatherModelR;
+      _isLoading = false;
+      notifyListeners();
+    } else {
+      print('Error');
+    }
 
     print(response.body);
   }
